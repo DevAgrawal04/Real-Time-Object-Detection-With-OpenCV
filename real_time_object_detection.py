@@ -37,9 +37,9 @@ args = vars(ap.parse_args())
 # Each prediction composes of a boundary box and 21 scores for each class (one extra class for no object),
 # and we pick the highest score as the class for the bounded object
 CLASSES = ["aeroplane", "background", "bicycle", "bird", "boat",
-           "bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
-           "dog", "horse", "motorbike", "person", "pottedplant", "sheep",
-           "sofa", "train", "tvmonitor"]
+           "cylindrical object", "bus", "car", "cat", "chair", "cow", "object",
+           "dog", "horse", "motorbike", "person", "plant", "sheep",
+           "furnitute", "train", "screen"]
 
 # CLASSES = ["background", "bottle", "chair", "diningtable",
 #            "person", "pottedplant", "sofa", "tvmonitor"]
@@ -121,7 +121,7 @@ while True:
 	net.setInput(blob) # net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
 	# Predictions:
 	predictions = net.forward()
-
+	# print(predictions)
 	# loop over the predictions
 	for i in np.arange(0, predictions.shape[2]):
 		# extract the confidence (i.e., probability) associated with the prediction

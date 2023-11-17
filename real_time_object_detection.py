@@ -41,6 +41,9 @@ CLASSES = ["aeroplane", "background", "bicycle", "bird", "boat",
            "dog", "horse", "motorbike", "person", "pottedplant", "sheep",
            "sofa", "train", "tvmonitor"]
 
+# CLASSES = ["background", "bottle", "chair", "diningtable",
+#            "person", "pottedplant", "sofa", "tvmonitor"]
+
 # Assigning random colors to each of the classes
 COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
 
@@ -94,7 +97,7 @@ while True:
 	# grab the frame from the threaded video stream and resize it to have a maximum width of 400 pixels
 	# vs is the VideoStream
 	frame = vs.read()
-	frame = imutils.resize(frame, width=400)
+	frame = imutils.resize(frame, width=1080)
 	print(frame.shape) # (225, 400, 3)
 	# grab the frame dimensions and convert it to a blob
 	# First 2 values are the h and w of the frame. Here h = 225 and w = 400
@@ -197,5 +200,4 @@ cv2.destroyAllWindows()
 # Stop the video stream
 vs.stop()
 
-# In case you removed the opaque tape over your laptop cam, make sure you put them back on once finished ;)
 # YAYYYYYYYYYY WE ARE DONE!
